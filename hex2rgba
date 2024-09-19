@@ -1,0 +1,26 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+#include <sstream>
+
+std::string hex2rgba(const unsigned int& color)
+{
+    unsigned int r = (color & 0xff000000) >> 24;
+    unsigned int g = (color & 0x00ff0000) >> 16;
+    unsigned int b = (color & 0x0000ff00) >> 8;
+    unsigned int a = (color & 0x000000ff);
+    
+    std::stringstream ss;
+    ss << "rgba(" << r << ", " << g << ", " << b << ", " << a << ")" << "\n";
+    return ss.str();
+}
+
+int main() {
+    
+    unsigned int color = 0xd91656ff;
+    //int color = 0x640D5FFF;
+    std::cout << hex2rgba(color);
+    
+    
+    return 0;
+}
